@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="#1a1a3e"/>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <radialGradient id="moonGlow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#fff4a3;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffed4e;stop-opacity:1" />
+    </radialGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Moon -->
+  <circle cx="256" cy="200" r="120" fill="url(#moonGlow)" filter="url(#glow)"/>
+  
+  <!-- Crescent Shadow -->
+  <circle cx="286" cy="180" r="120" fill="#1a1a3e"/>
+  
+  <!-- Star on Moon -->
+  <text x="256" y="160" font-size="50" text-anchor="middle" fill="#1a1a3e">⭐</text>
+  
+  <!-- Crescent Symbol -->
+  <text x="256" y="420" font-size="140" text-anchor="middle" fill="#ffd700" filter="url(#glow)">☪</text>
+  
+  <!-- Decorative Stars -->
+  <text x="120" y="140" font-size="35" fill="#ffd700" opacity="0.8">✨</text>
+  <text x="392" y="160" font-size="35" fill="#ffd700" opacity="0.8">✨</text>
+  <text x="150" y="380" font-size="30" fill="#ffed4e" opacity="0.7">⭐</text>
+  <text x="362" y="400" font-size="30" fill="#ffed4e" opacity="0.7">⭐</text>
+</svg>

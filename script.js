@@ -121,7 +121,7 @@ async function fetchPrayerTimes() {
     try {
         await getUserLocation();
         
-        const ramadanStartDate = new Date('2025-02-19');
+        const ramadanStartDate = new Date('2026-02-19');
         
         // Fetch prayer times for all 30 days of Ramadan
         for (let day = 1; day <= 30; day++) {
@@ -188,7 +188,7 @@ const arabicDays = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأ�
 
 // Get current date
 const today = new Date();
-const ramadanStartDate = new Date('2025-02-19'); // رمضان يبدأ يوم الخميس 19 فبراير 2025
+const ramadanStartDate = new Date('2026-02-19'); // رمضان يبدأ يوم الخميس 19 فبراير 2026
 
 // Calculate current Ramadan day
 const daysDiff = Math.floor((today - ramadanStartDate) / (1000 * 60 * 60 * 24));
@@ -217,7 +217,7 @@ function updatePrayerTimes() {
     const month = currentDate.getMonth() + 1;
     const year = currentDate.getFullYear();
 
-    document.getElementById('hijriDate').textContent = `${currentDay} رمضان 1446`;
+    document.getElementById('hijriDate').textContent = `${currentDay} رمضان 1447`;
     document.getElementById('gregorianDate').textContent = `${dayName} ${day}/${month}/${year}`;
 
     // Load checkboxes state
