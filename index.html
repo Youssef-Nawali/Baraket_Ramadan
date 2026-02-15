@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نور رمضان - Noor Ramadan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-stars" id="loadingStars"></div>
+        <div class="loading-moon"></div>
+        <div class="loading-text">جاري التحميل...</div>
+        <div class="loading-dots">
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+        </div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+        <div class="loading-subtitle">يرجى الانتظار</div>
+    </div>
+
+    <div class="geometric-pattern"></div>
+    
+    <div class="stars" id="stars"></div>
+    <div class="particles" id="particles"></div>
+    
+    <div class="moon"></div>
+    
+    <div class="lantern-container">
+        <div class="lantern">
+            <div class="lantern-rope"></div>
+            <div class="lantern-top"></div>
+            <div class="lantern-body"></div>
+            <div class="lantern-bottom"></div>
+            <div class="lantern-tassel"></div>
+        </div>
+        <div class="lantern">
+            <div class="lantern-rope"></div>
+            <div class="lantern-top"></div>
+            <div class="lantern-body"></div>
+            <div class="lantern-bottom"></div>
+            <div class="lantern-tassel"></div>
+        </div>
+        <div class="lantern">
+            <div class="lantern-rope"></div>
+            <div class="lantern-top"></div>
+            <div class="lantern-body"></div>
+            <div class="lantern-bottom"></div>
+            <div class="lantern-tassel"></div>
+        </div>
+        <div class="lantern">
+            <div class="lantern-rope"></div>
+            <div class="lantern-top"></div>
+            <div class="lantern-body"></div>
+            <div class="lantern-bottom"></div>
+            <div class="lantern-tassel"></div>
+        </div>
+        <div class="lantern">
+            <div class="lantern-rope"></div>
+            <div class="lantern-top"></div>
+            <div class="lantern-body"></div>
+            <div class="lantern-bottom"></div>
+            <div class="lantern-tassel"></div>
+        </div>
+        <div class="lantern">
+            <div class="lantern-rope"></div>
+            <div class="lantern-top"></div>
+            <div class="lantern-body"></div>
+            <div class="lantern-bottom"></div>
+            <div class="lantern-tassel"></div>
+        </div>
+        <div class="lantern">
+            <div class="lantern-rope"></div>
+            <div class="lantern-top"></div>
+            <div class="lantern-body"></div>
+            <div class="lantern-bottom"></div>
+            <div class="lantern-tassel"></div>
+        </div>
+    </div>
+
+    <div class="mosque-silhouette">
+        <div class="light-ray"></div>
+        <div class="minaret">
+            <div class="minaret-top"></div>
+        </div>
+        <div class="dome"></div>
+        <div class="minaret">
+            <div class="minaret-top"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="main-text">رمضان مبارك</h1>
+        <p class="subtitle">كل عام وأنتم بخير</p>
+    </div>
+
+    <!-- Prayer Times Section -->
+    <div class="prayer-times-container" id="prayerTimesContainer">
+        <div class="prayer-card">
+            <div class="prayer-header">
+                <button class="nav-btn" id="prevDay">❮</button>
+                <div class="prayer-title">
+                    <h2>مواقيت الصلاة</h2>
+                    <p class="hijri-date" id="hijriDate">1 رمضان 1446</p>
+                    <p class="gregorian-date" id="gregorianDate">الخميس 19/2/2025</p>
+                </div>
+                <button class="nav-btn" id="nextDay">❯</button>
+            </div>
+
+            <div class="prayer-list">
+                <div class="prayer-item">
+                    <div class="prayer-info">
+                        <input type="checkbox" class="prayer-checkbox" id="imsak">
+                        <label for="imsak">
+                            <span class="prayer-icon">🌅</span>
+                            <span class="prayer-name">الإمساك</span>
+                        </label>
+                    </div>
+                    <div class="prayer-time" id="imsakTime">04:30</div>
+                </div>
+
+                <div class="prayer-item">
+                    <div class="prayer-info">
+                        <input type="checkbox" class="prayer-checkbox" id="fajr">
+                        <label for="fajr">
+                            <span class="prayer-icon">🌄</span>
+                            <span class="prayer-name">الفجر</span>
+                        </label>
+                    </div>
+                    <div class="prayer-time" id="fajrTime">04:45</div>
+                </div>
+
+                <div class="prayer-item">
+                    <div class="prayer-info">
+                        <input type="checkbox" class="prayer-checkbox" id="sunrise">
+                        <label for="sunrise">
+                            <span class="prayer-icon">🌅</span>
+                            <span class="prayer-name">الشروق</span>
+                        </label>
+                    </div>
+                    <div class="prayer-time" id="sunriseTime">06:15</div>
+                </div>
+
+                <div class="prayer-item">
+                    <div class="prayer-info">
+                        <input type="checkbox" class="prayer-checkbox" id="dhuhr">
+                        <label for="dhuhr">
+                            <span class="prayer-icon">☀️</span>
+                            <span class="prayer-name">الظهر</span>
+                        </label>
+                    </div>
+                    <div class="prayer-time" id="dhuhrTime">12:30</div>
+                </div>
+
+                <div class="prayer-item">
+                    <div class="prayer-info">
+                        <input type="checkbox" class="prayer-checkbox" id="asr">
+                        <label for="asr">
+                            <span class="prayer-icon">🌤️</span>
+                            <span class="prayer-name">العصر</span>
+                        </label>
+                    </div>
+                    <div class="prayer-time" id="asrTime">15:45</div>
+                </div>
+
+                <div class="prayer-item">
+                    <div class="prayer-info">
+                        <input type="checkbox" class="prayer-checkbox" id="maghrib">
+                        <label for="maghrib">
+                            <span class="prayer-icon">🌆</span>
+                            <span class="prayer-name">المغرب</span>
+                        </label>
+                    </div>
+                    <div class="prayer-time" id="maghribTime">18:20</div>
+                </div>
+
+                <div class="prayer-item">
+                    <div class="prayer-info">
+                        <input type="checkbox" class="prayer-checkbox" id="isha">
+                        <label for="isha">
+                            <span class="prayer-icon">🌙</span>
+                            <span class="prayer-name">العشاء</span>
+                        </label>
+                    </div>
+                    <div class="prayer-time" id="ishaTime">19:45</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button class="toggle-btn" id="togglePrayer">
+        <span id="toggleIcon">📋</span>
+        <span id="toggleText">إظهار جدول الصلاة</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

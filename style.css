@@ -1,0 +1,869 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 25%, #2d1b4e 50%, #1a1a3e 75%, #0a0e27 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(90deg, white, transparent);
+    border-radius: 50%;
+    animation: shoot 3s linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(2); }
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-300px) translateY(300px);
+        opacity: 0;
+    }
+}
+
+.moon {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #fff4a3 0%, #ffd700 50%, #ffed4e 100%);
+    box-shadow: 0 0 80px rgba(255, 215, 0, 0.8),
+                0 0 120px rgba(255, 215, 0, 0.6),
+                0 0 160px rgba(255, 215, 0, 0.4),
+                inset -25px -25px 50px rgba(0, 0, 0, 0.15);
+    animation: moonFloat 6s infinite ease-in-out;
+    z-index: 1;
+}
+
+.moon::before {
+    content: '';
+    position: absolute;
+    top: 8%;
+    right: -22%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+    box-shadow: 0 0 40px rgba(10, 14, 39, 0.9);
+}
+
+.moon::after {
+    content: '⭐';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 2rem;
+    animation: starRotate 4s linear infinite;
+}
+
+@keyframes moonFloat {
+    0%, 100% { 
+        transform: translateX(-50%) translateY(0px);
+        box-shadow: 0 0 80px rgba(255, 215, 0, 0.8),
+                   0 0 120px rgba(255, 215, 0, 0.6),
+                   0 0 160px rgba(255, 215, 0, 0.4),
+                   inset -25px -25px 50px rgba(0, 0, 0, 0.15);
+    }
+    50% { 
+        transform: translateX(-50%) translateY(-15px);
+        box-shadow: 0 0 100px rgba(255, 215, 0, 1),
+                   0 0 150px rgba(255, 215, 0, 0.8),
+                   0 0 200px rgba(255, 215, 0, 0.6),
+                   inset -25px -25px 50px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@keyframes starRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    animation: containerPulse 3s infinite ease-in-out;
+}
+
+@keyframes containerPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+.main-text {
+    font-size: 7rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffd700, #ffed4e, #fff4a3, #ffd700);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGradient 4s ease infinite, textFloat 3s ease-in-out infinite;
+    margin-bottom: 2rem;
+    letter-spacing: 0.15em;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9))
+            drop-shadow(0 0 60px rgba(255, 215, 0, 0.6))
+            drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+    position: relative;
+}
+
+@keyframes textGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes textFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.subtitle {
+    font-size: 2rem;
+    background: linear-gradient(90deg, #e0e0e0, #ffffff, #e0e0e0);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: subtitleGlow 3s ease infinite, fadeInUp 2s ease;
+    filter: drop-shadow(0 2px 15px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes subtitleGlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lantern-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.lantern {
+    position: absolute;
+    width: 50px;
+    height: 75px;
+    animation: swing 4s infinite ease-in-out;
+    filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.8));
+}
+
+.lantern-rope {
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, #8b6508, transparent);
+    margin: 0 auto;
+}
+
+.lantern-top {
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(to bottom, #d4af37, #8b6508);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.lantern-body {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 25%, #ff8c42 50%, #ffd93d 75%, #ff6b6b 100%);
+    background-size: 200% 200%;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.8),
+               inset 0 0 20px rgba(255, 255, 255, 0.3);
+    animation: lanternGlow 2.5s infinite ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.lantern-body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.lantern-bottom {
+    width: 25px;
+    height: 20px;
+    background: linear-gradient(to bottom, #d4af37, #8b6508);
+    margin: 0 auto;
+    clip-path: polygon(10% 0, 90% 0, 75% 100%, 25% 100%);
+}
+
+.lantern-tassel {
+    width: 3px;
+    height: 15px;
+    background: #d4af37;
+    margin: 0 auto;
+}
+
+.lantern:nth-child(1) { top: 3%; left: 8%; animation-delay: 0s; }
+.lantern:nth-child(2) { top: 12%; right: 12%; animation-delay: 0.5s; }
+.lantern:nth-child(3) { top: 5%; left: 88%; animation-delay: 1s; }
+.lantern:nth-child(4) { top: 18%; left: 3%; animation-delay: 1.5s; }
+.lantern:nth-child(5) { top: 8%; right: 3%; animation-delay: 2s; }
+.lantern:nth-child(6) { top: 22%; left: 15%; animation-delay: 2.5s; }
+.lantern:nth-child(7) { top: 15%; right: 20%; animation-delay: 3s; }
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+}
+
+@keyframes lanternGlow {
+    0%, 100% { 
+        box-shadow: 0 0 30px rgba(255, 107, 107, 0.8),
+                   inset 0 0 20px rgba(255, 255, 255, 0.3);
+        background-position: 0% 50%;
+    }
+    50% { 
+        box-shadow: 0 0 50px rgba(255, 215, 0, 1),
+                   0 0 80px rgba(255, 107, 107, 0.6),
+                   inset 0 0 30px rgba(255, 255, 255, 0.5);
+        background-position: 100% 50%;
+    }
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.8), transparent);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.geometric-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.08;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255, 215, 0, 0.15) 60px, rgba(255, 215, 0, 0.15) 61px),
+        repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255, 215, 0, 0.15) 60px, rgba(255, 215, 0, 0.15) 61px);
+    animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+.mosque-silhouette {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    z-index: 5;
+}
+
+.dome {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 75px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    border-radius: 50% 50% 0 0;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.dome::before {
+    content: '☪';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #ffd700;
+    animation: crescentGlow 2s infinite ease-in-out;
+}
+
+@keyframes crescentGlow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8)); }
+    50% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1)); }
+}
+
+.minaret {
+    position: absolute;
+    bottom: 0;
+    width: 25px;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.minaret:nth-child(2) { left: 32%; }
+.minaret:nth-child(4) { right: 32%; }
+
+.minaret-top {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    border-radius: 50% 50% 0 0;
+}
+
+.minaret-top::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 12px;
+    background: #ffd700;
+    border-radius: 2px;
+}
+
+.light-ray {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(ellipse at center bottom, rgba(255, 215, 0, 0.2), transparent 70%);
+    transform: translateX(-50%);
+    animation: rayPulse 4s infinite ease-in-out;
+}
+
+@keyframes rayPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.blessing {
+    position: absolute;
+    font-size: 1.2rem;
+    color: rgba(255, 215, 0, 0.7);
+    animation: blessingFloat 6s infinite ease-in-out;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes blessingFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50px) scale(1.2);
+    }
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #2d1b4e 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: loadingFadeOut 1s ease 4s forwards;
+}
+
+@keyframes loadingFadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.loading-moon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #fff4a3 0%, #ffd700 50%, #ffed4e 100%);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.8),
+                0 0 100px rgba(255, 215, 0, 0.6);
+    animation: loadingMoonPulse 2s infinite ease-in-out;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.loading-moon::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -20%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+    box-shadow: 0 0 30px rgba(10, 14, 39, 0.9);
+}
+
+@keyframes loadingMoonPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 60px rgba(255, 215, 0, 0.8),
+                   0 0 100px rgba(255, 215, 0, 0.6);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 80px rgba(255, 215, 0, 1),
+                   0 0 120px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.loading-text {
+    font-size: 2.5rem;
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    animation: loadingTextGlow 2s infinite ease-in-out;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes loadingTextGlow {
+    0%, 100% {
+        opacity: 0.6;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 40px rgba(255, 215, 0, 1),
+                   0 0 60px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.loading-dots {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.loading-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: loadingDotBounce 1.4s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loadingDotBounce {
+    0%, 80%, 100% {
+        transform: scale(0.8) translateY(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1.2) translateY(-20px);
+        opacity: 1;
+    }
+}
+
+.loading-progress {
+    width: 300px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+    background-size: 200% 100%;
+    border-radius: 10px;
+    animation: loadingProgress 4s ease-in-out forwards, gradientSlide 1.5s infinite;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes loadingProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes gradientSlide {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.loading-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: loadingStarTwinkle 2s infinite ease-in-out;
+}
+
+@keyframes loadingStarTwinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+.loading-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 2rem;
+    animation: loadingSubtitleFade 3s infinite ease-in-out;
+}
+
+@keyframes loadingSubtitleFade {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Prayer Times Styles */
+.prayer-times-container {
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    transition: bottom 0.6s ease-in-out;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.prayer-times-container.active {
+    bottom: 5vh;
+}
+
+.prayer-times-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.prayer-times-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.prayer-times-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.5);
+    border-radius: 10px;
+}
+
+.prayer-times-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.7);
+}
+
+.prayer-card {
+    background: linear-gradient(135deg, rgba(26, 26, 62, 0.98), rgba(45, 27, 78, 0.98));
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5),
+               0 0 30px rgba(255, 215, 0, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    width: 450px;
+    max-width: 90vw;
+}
+
+.prayer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.prayer-title {
+    text-align: center;
+    flex: 1;
+}
+
+.prayer-title h2 {
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.hijri-date {
+    font-size: 1.1rem;
+    color: #ffed4e;
+    margin-bottom: 0.3rem;
+}
+
+.gregorian-date {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.2));
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    color: #ffd700;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(255, 237, 78, 0.4));
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.prayer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.prayer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.prayer-item:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 237, 78, 0.1));
+    border-color: rgba(255, 215, 0, 0.5);
+    transform: translateX(-5px);
+}
+
+.prayer-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.prayer-checkbox {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #ffd700;
+    border-radius: 5px;
+}
+
+.prayer-info label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+.prayer-icon {
+    font-size: 1.5rem;
+}
+
+.prayer-name {
+    font-weight: 500;
+}
+
+.prayer-time {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    direction: ltr;
+}
+
+.toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1a1a3e;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5),
+               0 0 30px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 101;
+}
+
+.toggle-btn:hover {
+    transform: translateX(-50%) translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 35px rgba(255, 215, 0, 0.7),
+               0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+.toggle-btn:active {
+    transform: translateX(-50%) translateY(-2px) scale(1.02);
+}
+
+#toggleIcon {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .main-text {
+        font-size: 3.5rem;
+    }
+    .subtitle {
+        font-size: 1.3rem;
+    }
+    .moon {
+        width: 100px;
+        height: 100px;
+    }
+    .lantern {
+        width: 35px;
+        height: 55px;
+    }
+    .prayer-card {
+        width: 350px;
+        padding: 1.5rem;
+    }
+    .prayer-title h2 {
+        font-size: 1.4rem;
+    }
+    .prayer-item {
+        padding: 0.8rem 1rem;
+    }
+    .prayer-info label {
+        font-size: 1rem;
+    }
+    .prayer-time {
+        font-size: 1.1rem;
+    }
+    .toggle-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    .loading-text {
+        font-size: 1.8rem;
+    }
+    .loading-progress {
+        width: 250px;
+    }
+    .loading-moon {
+        width: 70px;
+        height: 70px;
+    }
+}
