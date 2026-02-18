@@ -774,12 +774,162 @@ body {
     font-weight: 500;
 }
 
+.prayer-time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    min-width: 100px;
+}
+
 .prayer-time {
     font-size: 1.3rem;
     font-weight: bold;
     color: #ffd700;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     direction: ltr;
+}
+
+.prayer-countdown {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(180, 220, 255, 0.9);
+    direction: ltr;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    min-height: 1.1em;
+    letter-spacing: 0.02em;
+    background: rgba(255,255,255,0.06);
+    padding: 1px 6px;
+    border-radius: 6px;
+}
+
+.prayer-countdown.urgent {
+    color: #ffaa44;
+    animation: urgentPulse 1s infinite ease-in-out;
+    text-shadow: 0 0 8px rgba(255, 170, 68, 0.8);
+    background: rgba(255, 140, 0, 0.15);
+}
+
+.prayer-countdown.now {
+    color: #5eff8a;
+    font-weight: bold;
+    font-size: 0.85rem;
+    animation: nowPulse 1s infinite ease-in-out;
+    text-shadow: 0 0 8px rgba(76, 255, 120, 0.8);
+    background: rgba(76, 200, 80, 0.15);
+}
+
+.prayer-countdown.passed {
+    color: rgba(255, 255, 255, 0.3);
+    background: transparent;
+    font-weight: normal;
+}
+
+@keyframes urgentPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+@keyframes nowPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.prayer-item.next-prayer {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.08));
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.alarm-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+    filter: grayscale(1);
+    flex-shrink: 0;
+}
+
+.alarm-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: grayscale(0);
+}
+
+.alarm-btn.active {
+    opacity: 1;
+    filter: grayscale(0);
+    animation: bellRing 0.5s ease;
+}
+
+@keyframes bellRing {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(-15deg); }
+    40% { transform: rotate(15deg); }
+    60% { transform: rotate(-10deg); }
+    80% { transform: rotate(10deg); }
+}
+
+/* Alarm notification popup */
+.alarm-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-120px);
+    background: linear-gradient(135deg, #1a1a3e, #2d1b4e);
+    border: 2px solid #ffd700;
+    border-radius: 20px;
+    padding: 1.2rem 2rem;
+    z-index: 9999;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 280px;
+}
+
+.alarm-notification.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.alarm-notification .notif-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    animation: bellRing 0.6s ease infinite;
+}
+
+.alarm-notification .notif-title {
+    font-size: 1.3rem;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    margin-bottom: 0.3rem;
+}
+
+.alarm-notification .notif-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.alarm-notification .notif-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.alarm-notification .notif-close:hover {
+    color: white;
 }
 
 .toggle-btn {
@@ -947,6 +1097,18 @@ body {
     
     .prayer-time {
         font-size: 1rem;
+    }
+
+    .prayer-countdown {
+        font-size: 0.72rem;
+    }
+
+    .prayer-time-wrapper {
+        min-width: 80px;
+    }
+
+    .alarm-btn {
+        font-size: 0.95rem;
     }
 
     .prayer-checkbox {

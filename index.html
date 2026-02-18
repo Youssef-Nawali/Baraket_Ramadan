@@ -133,7 +133,7 @@
             </div>
 
             <div class="prayer-list">
-                <div class="prayer-item">
+                <div class="prayer-item" id="item-imsak">
                     <div class="prayer-info">
                         <input type="checkbox" class="prayer-checkbox" id="imsak">
                         <label for="imsak">
@@ -141,10 +141,14 @@
                             <span class="prayer-name">الإمساك</span>
                         </label>
                     </div>
-                    <div class="prayer-time" id="imsakTime">04:30</div>
+                    <div class="prayer-time-wrapper">
+                        <div class="prayer-time" id="imsakTime">04:30</div>
+                        <div class="prayer-countdown" id="imsakCountdown"></div>
+                    </div>
+                    <button class="alarm-btn" id="alarm-imsak" title="تفعيل التنبيه">🔔</button>
                 </div>
 
-                <div class="prayer-item">
+                <div class="prayer-item" id="item-fajr">
                     <div class="prayer-info">
                         <input type="checkbox" class="prayer-checkbox" id="fajr">
                         <label for="fajr">
@@ -152,10 +156,14 @@
                             <span class="prayer-name">الفجر</span>
                         </label>
                     </div>
-                    <div class="prayer-time" id="fajrTime">04:45</div>
+                    <div class="prayer-time-wrapper">
+                        <div class="prayer-time" id="fajrTime">04:45</div>
+                        <div class="prayer-countdown" id="fajrCountdown"></div>
+                    </div>
+                    <button class="alarm-btn" id="alarm-fajr" title="تفعيل التنبيه">🔔</button>
                 </div>
 
-                <div class="prayer-item">
+                <div class="prayer-item" id="item-sunrise">
                     <div class="prayer-info">
                         <input type="checkbox" class="prayer-checkbox" id="sunrise">
                         <label for="sunrise">
@@ -163,10 +171,14 @@
                             <span class="prayer-name">الشروق</span>
                         </label>
                     </div>
-                    <div class="prayer-time" id="sunriseTime">06:15</div>
+                    <div class="prayer-time-wrapper">
+                        <div class="prayer-time" id="sunriseTime">06:15</div>
+                        <div class="prayer-countdown" id="sunriseCountdown"></div>
+                    </div>
+                    <button class="alarm-btn" id="alarm-sunrise" title="تفعيل التنبيه">🔔</button>
                 </div>
 
-                <div class="prayer-item">
+                <div class="prayer-item" id="item-dhuhr">
                     <div class="prayer-info">
                         <input type="checkbox" class="prayer-checkbox" id="dhuhr">
                         <label for="dhuhr">
@@ -174,10 +186,14 @@
                             <span class="prayer-name">الظهر</span>
                         </label>
                     </div>
-                    <div class="prayer-time" id="dhuhrTime">12:30</div>
+                    <div class="prayer-time-wrapper">
+                        <div class="prayer-time" id="dhuhrTime">12:30</div>
+                        <div class="prayer-countdown" id="dhuhrCountdown"></div>
+                    </div>
+                    <button class="alarm-btn" id="alarm-dhuhr" title="تفعيل التنبيه">🔔</button>
                 </div>
 
-                <div class="prayer-item">
+                <div class="prayer-item" id="item-asr">
                     <div class="prayer-info">
                         <input type="checkbox" class="prayer-checkbox" id="asr">
                         <label for="asr">
@@ -185,10 +201,14 @@
                             <span class="prayer-name">العصر</span>
                         </label>
                     </div>
-                    <div class="prayer-time" id="asrTime">15:45</div>
+                    <div class="prayer-time-wrapper">
+                        <div class="prayer-time" id="asrTime">15:45</div>
+                        <div class="prayer-countdown" id="asrCountdown"></div>
+                    </div>
+                    <button class="alarm-btn" id="alarm-asr" title="تفعيل التنبيه">🔔</button>
                 </div>
 
-                <div class="prayer-item">
+                <div class="prayer-item" id="item-maghrib">
                     <div class="prayer-info">
                         <input type="checkbox" class="prayer-checkbox" id="maghrib">
                         <label for="maghrib">
@@ -196,10 +216,14 @@
                             <span class="prayer-name">المغرب</span>
                         </label>
                     </div>
-                    <div class="prayer-time" id="maghribTime">18:20</div>
+                    <div class="prayer-time-wrapper">
+                        <div class="prayer-time" id="maghribTime">18:20</div>
+                        <div class="prayer-countdown" id="maghribCountdown"></div>
+                    </div>
+                    <button class="alarm-btn" id="alarm-maghrib" title="تفعيل التنبيه">🔔</button>
                 </div>
 
-                <div class="prayer-item">
+                <div class="prayer-item" id="item-isha">
                     <div class="prayer-info">
                         <input type="checkbox" class="prayer-checkbox" id="isha">
                         <label for="isha">
@@ -207,7 +231,11 @@
                             <span class="prayer-name">العشاء</span>
                         </label>
                     </div>
-                    <div class="prayer-time" id="ishaTime">19:45</div>
+                    <div class="prayer-time-wrapper">
+                        <div class="prayer-time" id="ishaTime">19:45</div>
+                        <div class="prayer-countdown" id="ishaCountdown"></div>
+                    </div>
+                    <button class="alarm-btn" id="alarm-isha" title="تفعيل التنبيه">🔔</button>
                 </div>
             </div>
         </div>
